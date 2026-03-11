@@ -7,7 +7,7 @@ export const requireRole = (allowedRoles: Role[]) => {
   return async (req: AuthRequest, res: Response, next: NextFunction) => {
     try {
       const userId = req.user?.id;
-      const documentId = req.params.id;
+      const documentId = req.params.id as string;
 
       if (!userId || !documentId) {
         return res.status(401).json({ error: 'Unauthorized' });

@@ -16,7 +16,7 @@ const httpServer = createServer(app);
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
   res.send('SyncDoc API is running...');
 });
 

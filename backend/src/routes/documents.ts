@@ -56,7 +56,7 @@ router.get('/:id', requireRole(['EDITOR', 'VIEWER']), async (req: AuthRequest, r
   // if `requireRole` reached here, the user is an owner, editor, or viewer.
   try {
     const doc = await prisma.document.findUnique({
-      where: { id: req.params.id },
+      where: { id: req.params.id as string },
       include: {
         owner: { select: { id: true, name: true, email: true } },
         roles: {
@@ -77,7 +77,7 @@ router.put('/:id', requireRole(['EDITOR']), async (req: AuthRequest, res: Respon
   try {
     const { title } = req.body;
     const doc = await prisma.document.update({
-      where: { id: req.params.id },
+      where: { id: req.params.id as string },
       data: { title }
     });
     res.json(doc);
@@ -89,11 +89,11 @@ router.put('/:id', requireRole(['EDITOR']), async (req: AuthRequest, res: Respon
 // Delete document (Only owner)
 router.delete('/:id', async (req: AuthRequest, res: Response) => {
   try {
-    const doc = await prisma.document.findUnique({ where: { id: req.params.id } });
+    const doc = await prisma.document.findUnique({ where: { id: req.params.id as string } });
     if (!doc || doc.ownerId !== req.user?.id) {
       return res.status(403).json({ error: 'Only owner can delete' });
     }
-    await prisma.document.delete({ where: { id: req.params.id } });
+    await prisma.document.delete({ where: { id: req.params.id as string } });
     res.json({ message: 'Deleted' });
   } catch (err) {
     res.status(500).json({ error: 'Server error' });
@@ -104,7 +104,7 @@ router.delete('/:id', async (req: AuthRequest, res: Response) => {
 router.post('/:id/share', async (req: AuthRequest, res: Response) => {
   try {
     const { email, role } = req.body; // role: 'EDITOR' | 'VIEWER'
-    const doc = await prisma.document.findUnique({ where: { id: req.params.id } });
+    const doc = await prisma.document.findUnique({ where: { id: req.params.id as string } });
     
     if (!doc || doc.ownerId !== req.user?.id) {
       // For assignment, assuming only owner can share (could modify to Editors too)
@@ -120,13 +120,13 @@ router.post('/:id/share', async (req: AuthRequest, res: Response) => {
       where: {
         userId_documentId: {
           userId: targetUser.id,
-          documentId: req.params.id
+          documentId: req.params.id as string
         }
       },
       update: { role },
       create: {
         userId: targetUser.id,
-        documentId: req.params.id,
+        documentId: req.params.id as string,
         role
       }
     });

@@ -68,7 +68,7 @@ export const initializeSocket = (httpServer: HttpServer) => {
            // but normally we'd just want to throw an error if they try
            return socket; 
         }
-        return originalOn.apply(this, [eventName, ...args]);
+        return originalOn.apply(this, [eventName, ...args] as any);
       };
     }
 
@@ -98,8 +98,8 @@ export const initializeSocket = (httpServer: HttpServer) => {
           data: {
             documentId,
             userId,
-            message: data.message,
-            fileUrl: data.fileUrl,
+            message: data.message || null,
+            fileUrl: data.fileUrl || null,
           },
           include: { user: { select: { id: true, name: true, email: true } } }
         });

@@ -1,0 +1,31 @@
+﻿src/index.ts(1,8): error TS1259: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/express/index"' can only be default-imported using the 'esModuleInterop' flag
+src/index.ts(2,8): error TS1259: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/cors/index"' can only be default-imported using the 'esModuleInterop' flag
+src/index.ts(4,8): error TS1192: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/dotenv/lib/main"' has no default export.
+src/index.ts(19,15): error TS7006: Parameter 'req' implicitly has an 'any' type.
+src/index.ts(19,20): error TS7006: Parameter 'res' implicitly has an 'any' type.
+src/middleware/auth.ts(2,8): error TS1192: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/jsonwebtoken/index"' has no default export.
+src/middleware/auth.ts(18,84): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/middleware/rbac.ts(17,18): error TS2322: Type 'string | string[]' is not assignable to type 'string | undefined'.
+  Type 'string[]' is not assignable to type 'string'.
+src/middleware/rbac.ts(33,13): error TS2322: Type 'string | string[]' is not assignable to type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/routes/auth.ts(2,8): error TS1259: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/bcryptjs/umd/index"' can only be default-imported using the 'esModuleInterop' flag
+src/routes/auth.ts(3,8): error TS1192: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/jsonwebtoken/index"' has no default export.
+src/routes/documents.ts(59,16): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/documents.ts(80,16): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/documents.ts(92,61): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/documents.ts(96,45): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/documents.ts(107,61): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/documents.ts(129,9): error TS2412: Type 'string | string[] | undefined' is not assignable to type 'string | undefined' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the type of the target.
+src/routes/upload.ts(3,8): error TS1259: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/multer/index"' can only be default-imported using the 'esModuleInterop' flag
+src/routes/upload.ts(21,16): error TS7006: Parameter '_req' implicitly has an 'any' type.
+src/routes/upload.ts(21,22): error TS7006: Parameter 'file' implicitly has an 'any' type.
+src/routes/upload.ts(21,28): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+src/socket.ts(4,8): error TS1192: Module '"C:/Users/moksh/Downloads/Regrip/backend/node_modules/@types/jsonwebtoken/index"' has no default export.
+src/socket.ts(71,39): error TS2345: Argument of type '[any, ...any[]]' is not assignable to parameter of type '[ev: string, listener: (...args: any[]) => void]'.
+  Target requires 2 element(s) but source may have fewer.
+src/socket.ts(98,11): error TS2375: Type '{ documentId: any; userId: any; message: string | undefined; fileUrl: string | undefined; }' is not assignable to type '(Without<ChatMessageCreateInput, ChatMessageUncheckedCreateInput> & ChatMessageUncheckedCreateInput) | (Without<...> & ChatMessageCreateInput)' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ documentId: any; userId: any; message: string | undefined; fileUrl: string | undefined; }' is not assignable to type 'Without<ChatMessageUncheckedCreateInput, ChatMessageCreateInput> & ChatMessageCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ documentId: any; userId: any; message: string | undefined; fileUrl: string | undefined; }' is not assignable to type 'Without<ChatMessageUncheckedCreateInput, ChatMessageCreateInput>'.
+      Types of property 'userId' are incompatible.
+        Type 'any' is not assignable to type 'never'.
